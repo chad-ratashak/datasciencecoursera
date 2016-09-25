@@ -24,28 +24,28 @@ rankhospital <- function(state, outcome, num = "best") {
   measures.state <- measures[measures$State == state, ]
   
   # order data by outcome
-  sorted.data.state <- measures.state[order(as.numeric(measures.state[[shortname]]), measures.state[["Hospital.Name"]],decreasing=FALSE,na.last=NA), ]
+  sorted.measures.state <- measures.state[order(as.numeric(measures.state[[shortname]]), measures.state[["Hospital.Name"]],decreasing=FALSE,na.last=NA), ]
   
   #handle num input
   if (num=="best") num = 1
-  if (num=='worst') num = nrow(sorted.data.state)
+  if (num=='worst') num = nrow(sorted.measures.state)
   #will automatically return NA if num > nrow, as well as if it's some other text value
   # if someone passes num < 1, they'll get what's expected
   #if (is.numeric(num) & num > nrwo(sorted.data.state) return(NA)
   
-  print(sorted.data.state[num,"Hospital.Name"])
+  print(sorted.measures.state[num,"Hospital.Name"])
 
   ## 30-day death rate
   if(outcome == "heart attack"){
-    print(sorted.data.state[2, 11]) #Name, heart attack
+    print(sorted.measures.state[2, 11]) #Name, heart attack
   }
 
   else if(outcome == "heart failure"){
-    print(sorted.data.state[2, 17]) #Name, heart failure
+    print(sorted.measures.state[2, 17]) #Name, heart failure
   }
   
   else if(outcome == "pneumonia"){
-    print(sorted.data.state[2, 23]) #Name, pneumonia
+    print(sorted.measures.state[2, 23]) #Name, pneumonia
   }
 
 }
