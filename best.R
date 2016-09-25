@@ -33,15 +33,15 @@ best <- function(state, outcome){
   
   #rate
   if(outcome == "heart attack"){
-  print(measures.state[besthospital, "Hospital.30.Day.Death..Mortality..Rates.from.Heart.Attack"])
+  print(measures.state[besthospital, 11])
   }
   
   else if(outcome == "heart failure"){
-    print(measures.state[besthospital, "Hospital.30.Day.Death..Mortality..Rates.from.Heart.Failure"])
+    print(measures.state[besthospital, 17])
   }
   
   else if(outcome == "pneumonia"){
-    print(measures.state[besthospital, "Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia"])
+    print(measures.state[besthospital, 23])
   }
   
 }
@@ -70,7 +70,6 @@ best("NY", "hert attack")
 
 
 ##Assignment description
-
 # 2 Finding the best hospital in a state
 # Write a function called best that take two arguments: the 2-character abbreviated name of a state and an
 # outcome name. The function reads the outcome-of-care-measures.csv file and returns a character vector
